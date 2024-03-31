@@ -21,13 +21,22 @@ const second = (val) => {
  */
 
 // Refactor the following code...
-export const handlePromise = first();
-const secondPromise = handlePromise.then((val) => val);
+export const handlePromise = first()
+.then((val) => val)
+.then((res) => second(res).then((val) => {
+  console.log(val);
+  return val;}))
+//technically there are only 2 CHAINED then() methods--please lmk if there is a more efficient route tho lol
+
+
+/* const secondPromise = handlePromise.then((val) => val);  
 const final = secondPromise.then((res) => second(res));
 final.then((val) => {
   console.log(val);
   return val;
-});
+}); */
+
+
 
 // === TEST YOURSELF ===
 // Once you're finished run the test with "npm run test-4"

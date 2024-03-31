@@ -8,9 +8,12 @@
  *          export const Promise
  */
 
-export const attachTitle = () => {
+export const attachTitle = (arg) => {
   // Your code goes here...
-};
+  return (`DR. ${arg}`);
+}
+
+
 
 /**
  * @task
@@ -20,8 +23,12 @@ export const attachTitle = () => {
  * If your program runs successfully, it should print out and return “DR. MANHATTAN” which is extremely exciting.
  */
 
+
 export const getPromise = () => {
   // Your code goes here...
+  return Promise.resolve('MANHATTAN')
+  .then((val) => attachTitle(val))
+  .then((val)=> console.log(val))
 };
 
 // === TEST YOURSELF ===

@@ -19,8 +19,12 @@
  *          }
  */
 
-export function parsePromised() {
-  // Your code goes here...
+export const parsePromised = (json_string) => {
+  return new Promise((res, rej) => {
+    res(JSON.parse(json_string));
+    rej((err) =>(err.message));
+  } 
+  )
 }
 
 /**
@@ -30,8 +34,9 @@ export function parsePromised() {
  * * logs the message property of the error object
  */
 
-export function onReject() {
+export function onReject(err) {
   // Your code goes here...
+  console.log(err.message);
 }
 
 /**
@@ -46,9 +51,10 @@ export function onReject() {
  * Example: export const promiseHandler = () => return <your code>
  */
 
-export const handlePromise = () => {
+export const handlePromise = (promise) => {
   // Your code goes here...
-};
+return promise.then((val) => val, (error) => onReject(error))
+}
 
 // === TEST YOURSELF ===
 // Once you're finished run the test with "npm run test-7"
