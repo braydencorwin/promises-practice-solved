@@ -17,11 +17,11 @@
 
 export const getPromise = (bool) => {
   // Your code goes here...
-  const promise = new Promise((resolve, reject) => {
-    bool ? resolve('The PROMISE was RESOLVED') : reject('The PROMISE was REJECTED');
-  })
-
-  return promise
+  return new Promise((resolve, reject) => {
+    bool
+      ? resolve("The PROMISE was RESOLVED")
+      : reject("The PROMISE was REJECTED");
+  });
 };
 
 /**
@@ -35,10 +35,11 @@ export const getPromise = (bool) => {
 
 export const handlePromise = (promise) => {
   // Your code goes here...
-  const onReject =function (){
-    return 'Uh Oh'
-  }
-  return promise.then((val)=> val, onReject);
+
+  return promise.then(
+    (val) => val,
+    () => "Uh Oh"
+  );
 };
 
 // === TEST YOURSELF ===

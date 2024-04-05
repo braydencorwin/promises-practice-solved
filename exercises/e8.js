@@ -7,8 +7,7 @@
 
 // === RESOLVED PROMISE
 // Update the returnPromise variable to use the shortcut syntax
-export const returnPromise = () =>
-  Promise.resolve("The PROMISE was RESOLVED");
+export const returnPromise = () => Promise.resolve("The PROMISE was RESOLVED");
 
 // === REJECTED PROMISE
 // Update the returnRejectingPromise variable to use the shortcut syntax

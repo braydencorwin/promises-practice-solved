@@ -16,8 +16,7 @@
  */
 export const getPromise = (arg) => {
   // Your code goes here...
-  const isWhole = (arg)%1 == 0 ? new Promise((resolve) => resolve(arg)) : 0 ;
-  return isWhole;
+  return arg % 1 == 0 ? new Promise((resolve) => resolve(arg)) : 0;
 };
 
 /**
@@ -34,9 +33,9 @@ export const getPromise = (arg) => {
 export const updateSumValue = () => {
   // Your code goes here...
   var sum = 2;
-  
-  getPromise(120).then((val) => val += sum)
-  return sum +8
+
+  getPromise(120).then((val) => (sum += val));
+  return (sum += 8);
 };
 
 // === TEST YOURSELF ===

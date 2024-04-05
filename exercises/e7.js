@@ -21,11 +21,13 @@
 
 export const parsePromised = (json_string) => {
   return new Promise((res, rej) => {
-    res(JSON.parse(json_string));
-    rej((err) =>(err.message));
-  } 
-  )
-}
+    try {
+      res(JSON.parse(json_string));
+    } catch (err) {
+      rej(err);
+    }
+  });
+};
 
 /**
  * @task
@@ -53,8 +55,17 @@ export function onReject(err) {
 
 export const handlePromise = (promise) => {
   // Your code goes here...
-return promise.then((val) => val, (error) => onReject(error))
-}
+  return promise.then(
+    (val) => val,
+    (error) => {
+      try {
+        return onReject(error);
+      } catch (error) {
+        return error;
+      }
+    }
+  );
+};
 
 // === TEST YOURSELF ===
 // Once you're finished run the test with "npm run test-7"
